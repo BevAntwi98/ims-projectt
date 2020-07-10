@@ -27,6 +27,7 @@ public class Ims {
 		String username = Utils.getInput();
 		LOGGER.info("What is your password");
 		String password = Utils.getInput();
+		System.out.println("-----------------------------------------");
 
 		init(username, password);
 

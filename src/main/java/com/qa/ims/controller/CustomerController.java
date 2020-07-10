@@ -48,8 +48,14 @@ public class CustomerController implements CrudController<Customer>{
 		String firstName = getInput();
 		LOGGER.info("Please enter a surname");
 		String surname = getInput();
-		Customer customer = customerService.create(new Customer(firstName, surname));
-		LOGGER.info("Customer created");
+		LOGGER.info("Please enter your email address");
+		String email = getInput();
+		LOGGER.info("Please enter your address");
+		String address = getInput();
+		LOGGER.info("Finally, please enter a password !");
+		String password = getInput();
+		Customer customer = customerService.create(new Customer(firstName, surname, email, address,password));
+		LOGGER.info("Customer Created!");
 		return customer;
 	}
 
@@ -62,10 +68,10 @@ public class CustomerController implements CrudController<Customer>{
 		Long id = Long.valueOf(getInput());
 		LOGGER.info("Please enter a first name");
 		String firstName = getInput();
-		LOGGER.info("Please enter a surname");
-		String surname = getInput();
-		Customer customer = customerService.update(new Customer(id, firstName, surname));
-		LOGGER.info("Customer Updated");
+		LOGGER.info("Please enter a new password");
+		String password = getInput();
+		Customer customer = customerService.update(new Customer(id, firstName, password));
+		LOGGER.info("Customer Updated!");
 		return customer;
 	}
 
@@ -77,6 +83,8 @@ public class CustomerController implements CrudController<Customer>{
 		LOGGER.info("Please enter the id of the customer you would like to delete");
 		Long id = Long.valueOf(getInput());
 		customerService.delete(id);
+		LOGGER.info("Customer Deleted!");
+		
 	}
 	
 }

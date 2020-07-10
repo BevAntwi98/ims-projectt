@@ -16,8 +16,8 @@ public class CustomerTest {
 	
 	@Before
 	public void setUp() {
-		customer = new Customer(1L, "Chris", "Perrins");
-		other = new Customer(1L, "Chris", "Perrins");
+		customer = new Customer(1L, "Emilia", "Adu");
+		other = new Customer(1L, "Tony", "Antwi");
 	}
 	
 	@Test
@@ -25,6 +25,9 @@ public class CustomerTest {
 		assertNotNull(customer.getId());
 		assertNotNull(customer.getFirstName());
 		assertNotNull(customer.getSurname());
+		assertNotNull(customer.getEmail());
+		assertNotNull(customer.getAddress());
+		assertNotNull(customer.getPassword());
 		
 		customer.setId(null);
 		assertNull(customer.getId());
@@ -32,7 +35,12 @@ public class CustomerTest {
 		assertNull(customer.getFirstName());
 		customer.setSurname(null);
 		assertNull(customer.getSurname());
-		
+		customer.setEmail(null);
+		assertNull(customer.getEmail());
+		customer.setAddress(null);
+		assertNull(customer.getAddress());
+		customer.setPassword(null);
+		assertNull(customer.getPassword());
 	}
 	
 	@Test
@@ -48,8 +56,11 @@ public class CustomerTest {
 	@Test
 	public void createCustomerWithId() {
 		assertEquals(1L, customer.getId(), 0);
-		assertEquals("Chris", customer.getFirstName());
-		assertEquals("Perrins", customer.getSurname());
+		assertEquals("Emilia", customer.getFirstName());
+		assertEquals("Antwi", customer.getSurname());
+		assertEquals("emils@gmail.co.uk", customer.getEmail());
+		assertEquals("64 Zoo Lane",customer.getAddress());
+		assertEquals("dfghjkl",customer.getPassword());
 	}
 	
 	@Test
@@ -115,16 +126,20 @@ public class CustomerTest {
 	
 	@Test
 	public void otherSurnameDifferent() {
-		other.setSurname("thompson");
+		other.setSurname("antwi");
 		assertFalse(customer.equals(other));
 	}
 	
 	@Test
 	public void constructorWithoutId() {
-		Customer customer = new Customer("Chris", "Perrins");
+		Customer customer = new Customer("Emilia", "Adu", "emils@gmail.co.uk","64 Zoo Lane", "dfghjkl" );
 		assertNull(customer.getId());
 		assertNotNull(customer.getFirstName());
 		assertNotNull(customer.getSurname());
+		assertNotNull(customer.getEmail());
+		assertNotNull(customer.getAddress());
+		assertNotNull(customer.getPassword());
+		
 	}
 	
 	@Test
@@ -133,14 +148,14 @@ public class CustomerTest {
 	}
 	@Test
 	public void hashCodeTestWithNull() {
-		Customer customer = new Customer(null, null);
-		Customer other = new Customer(null, null);
+		Customer customer = new Customer(null, null, null,null,null);
+		Customer other = new Customer(null, null, null, null, null);
 		assertEquals(customer.hashCode(), other.hashCode());
 	}
 	
 	@Test
 	public void toStringTest() {
-		String toString = "id:1 first name:Chris surname:Perrins";
+		String toString = "id:1 first name:Emilia surname:Adu";
 		assertEquals(toString, customer.toString());
 	}
 }

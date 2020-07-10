@@ -37,7 +37,10 @@ public class CustomerDaoMysql implements Dao<Customer> {
 		Long id = resultSet.getLong("id");
 		String firstName = resultSet.getString("first_name");
 		String surname = resultSet.getString("surname");
-		return new Customer(id, firstName, surname);
+		String email = resultSet.getString("email");
+		String address = resultSet.getString("address");
+		String password = resultSet.getString("password");
+		return new Customer(firstName, surname, email, address, password);
 	}
 
 	/**
@@ -84,8 +87,8 @@ public class CustomerDaoMysql implements Dao<Customer> {
 	public Customer create(Customer customer) {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();) {
-			statement.executeUpdate("insert into customers(first_name, surname) values('" + customer.getFirstName()
-					+ "','" + customer.getSurname() + "')");
+			statement.executeUpdate("insert into customers(first_name, surname, email , address, password) values('" + customer.getFirstName()
+					+ "','" + customer.getSurname() +"','" + customer.getEmail() + "','"  + customer.getAddress() + "','" + customer.getPassword() + "')");
 			return readLatest();
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
@@ -118,8 +121,8 @@ public class CustomerDaoMysql implements Dao<Customer> {
 	public Customer update(Customer customer) {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();) {
-			statement.executeUpdate("update customers set first_name ='" + customer.getFirstName() + "', surname ='"
-					+ customer.getSurname() + "' where id =" + customer.getId());
+			statement.executeUpdate("update customers set first_name ='" + customer.getFirstName() + "', password ='"
+					+ customer.getPassword() + "' where id =" + customer.getId());
 			return readCustomer(customer.getId());
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());

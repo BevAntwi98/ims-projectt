@@ -5,16 +5,22 @@ public class Customer {
 	private Long id;
 	private String firstName;
 	private String surname;
+	private String email;
+	private String address;
+	private String password;
 
-	public Customer(String firstName, String surname) {
+	public Customer(String firstName, String surname, String email, String address, String password) {
 		this.firstName = firstName;
 		this.surname = surname;
+		this.email = email;
+		this.address = address;
+		this.password= password;
 	}
 
-	public Customer(Long id, String firstName, String surname) {
+	public Customer(Long id, String firstName, String password) {
 		this.id = id;
 		this.firstName = firstName;
-		this.surname = surname;
+		this.password = password;
 	}
 
 	public Long getId() {
@@ -41,8 +47,10 @@ public class Customer {
 		this.surname = surname;
 	}
 
+	
 	public String toString() {
-		return "id:" + id + " first name:" + firstName + " surname:" + surname;
+		return "Customer [id=" + id + ", customer_name=" +firstName + ", customer_lastname=" + surname
+				+ ", email=" + email + ", address=" + address + ", password=" + password + "]";
 	}
 
 	@Override
@@ -52,6 +60,7 @@ public class Customer {
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((surname == null) ? 0 : surname.hashCode());
+		
 		return result;
 	}
 
@@ -80,6 +89,30 @@ public class Customer {
 		} else if (!surname.equals(other.surname))
 			return false;
 		return true;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }

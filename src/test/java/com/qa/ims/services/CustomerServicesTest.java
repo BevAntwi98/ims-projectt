@@ -22,7 +22,7 @@ public class CustomerServicesTest {
 	
 	@Test
 	public void customerServicesCreate() {
-		Customer customer = new Customer("chris", "perrins");
+		Customer customer = new Customer("Emilia", "Adu", "emils@gmail.co.uk","64 Zoo Lane", "dfghjkl" );
 		customerServices.create(customer);
 		Mockito.verify(customerDao, Mockito.times(1)).create(customer);
 	}
