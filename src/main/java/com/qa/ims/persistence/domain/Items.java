@@ -5,11 +5,11 @@ public class Items {
 	private Long id;
 	private String item_name;
 	private int quantity;
-	private int total_price;
+	private double total_price;
 	
 	
 	
-	public Items(String item_name, int quantity, int total_price) {
+	public Items(String item_name, int quantity, double total_price) {
 		super();
 		this.item_name = item_name;
 		this.quantity = quantity;
@@ -23,7 +23,6 @@ public class Items {
 		this.item_name = item_name;
 		this.quantity = quantity;
 	}
-
 
 
 	public Long getId() {
@@ -62,13 +61,12 @@ public class Items {
 
 
 
-	public int getTotal_price() {
+	public double getTotal_price() {
 		return total_price;
 	}
+	
 
-
-
-	public void setTotal_price(int total_price) {
+	public void setTotal_price(double total_price) {
 		this.total_price = total_price;
 	}
  

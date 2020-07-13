@@ -19,4 +19,7 @@ public class Utils {
 		
 	}
 
+	public static double getNumInput() {
+		return SCANNER.nextDouble();
+	}
 }

@@ -27,16 +27,20 @@ public class ItemsController implements CrudController<Items>{
 			return Utils.getNumberInput();
 		}
 		
+		double getNumInput() {
+			return Utils.getNumInput();
+			
+		}
 		/**
 		 * Reads all customers to the logger
 		 */
 		@Override
 		public List<Items> readAll() {
-			List<Items> items = itemsService.readAll();
-			for(Items items1: items) {
-				LOGGER.info(items1.toString());
+			List<Items> item = itemsService.readAll();
+			for(Items items: item) {
+				LOGGER.info(items.getItem_name());
 			}
-			return items;
+			return item;
 		}
 
 		/**
@@ -49,7 +53,7 @@ public class ItemsController implements CrudController<Items>{
 			LOGGER.info("Please enter the quantity");
 			int quantity = getNumberInput();
 			LOGGER.info("Now please enter the total price");
-			int total_price = getNumberInput();
+			double total_price = getNumInput();
 			Items items = itemsService.create(new Items(itemName, quantity, total_price));
 			LOGGER.info("Item Created!");
 			return items;
