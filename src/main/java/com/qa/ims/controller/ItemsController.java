@@ -38,7 +38,7 @@ public class ItemsController implements CrudController<Items>{
 		public List<Items> readAll() {
 			List<Items> item = itemsService.readAll();
 			for(Items items: item) {
-				LOGGER.info(items.getItem_name());
+				LOGGER.info(items.toString());
 			}
 			return item;
 		}
