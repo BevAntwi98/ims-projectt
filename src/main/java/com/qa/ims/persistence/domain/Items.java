@@ -21,7 +21,7 @@ public class Items {
 	}
 
 	public String toString() {
-		return "Items [id=" + id + ", item_name=" + item_name + ", quantity" + quantity + ", total_price" + total_price
+		return "Items [id= " + id + ", item_name= " + item_name + ", quantity= " + quantity + ", total_price= £" + total_price
 				+ "]";
 	}
 
