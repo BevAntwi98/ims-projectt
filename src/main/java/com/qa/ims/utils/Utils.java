@@ -14,12 +14,17 @@ public class Utils {
 	public static String getInput() {
 		return SCANNER.nextLine();
 	}
+
 	public static int getNumberInput() {
 		return SCANNER.nextInt();
-		
+
 	}
 
 	public static double getNumInput() {
 		return SCANNER.nextDouble();
+	}
+
+	public static long gettheInput() {
+        return SCANNER.nextLong();
 	}
 }

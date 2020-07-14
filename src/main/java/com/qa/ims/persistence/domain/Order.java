@@ -4,8 +4,8 @@ import java.sql.Date;
 
 public class Order {
 		
-		private Long order_id;
-		private Long customer_id;
+		private long order_id; 
+		private long fkcustomer_id;
 		private Date placed_date;
 		private double total_order;
 		
@@ -13,16 +13,16 @@ public class Order {
 		public Order( Long customer_id, Date placed_date, double total_order) {
 			super();
 			
-			this.customer_id = customer_id;
+			this.fkcustomer_id = customer_id;
 			this.placed_date = placed_date;
 			this.total_order = total_order;
 		}
 
 
-		public Order(Long order_id, Date placed_date) {
+		public Order(Long order_id, Long fkcustomer_id) {
 			super();
 			this.order_id = order_id;
-			this.placed_date = placed_date;
+			this.fkcustomer_id = fkcustomer_id;
 		}
 
 
@@ -37,12 +37,12 @@ public class Order {
 
 
 		public Long getCustomer_id() {
-			return customer_id;
+			return fkcustomer_id;
 		}
 
 
 		public void setCustomer_id(Long customer_id) {
-			this.customer_id = customer_id;
+			this.fkcustomer_id = customer_id;
 		}
 
 
