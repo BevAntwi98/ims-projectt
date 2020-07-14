@@ -20,6 +20,10 @@ public class Items {
 		this.quantity = quantity;
 	}
 
+	public Items() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String toString() {
 		return "Items [id= " + id + ", item_name= " + item_name + ", quantity= " + quantity + ", total_price= £" + total_price
 				+ "]";

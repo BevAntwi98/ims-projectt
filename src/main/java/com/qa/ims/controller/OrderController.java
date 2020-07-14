@@ -1,5 +1,6 @@
 package com.qa.ims.controller;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -8,36 +9,35 @@ import com.qa.ims.persistence.domain.Order;
 import com.qa.ims.services.CrudServices;
 import com.qa.ims.utils.Utils;
 
-public class OrderController implements CrudController<Order>{
+public class OrderController implements CrudController<Order> {
 
 	public static final Logger LOGGER = Logger.getLogger(OrderController.class);
-	
+
 	private CrudServices<Order> orderService;
-	
+
 	public OrderController(CrudServices<Order> orderService) {
 		this.orderService = orderService;
 	}
-	
- 
-	
+
 	long getNumberInput() {
 		return Utils.gettheInput();
 	}
-	
+
 	double getNumInput() {
 		return Utils.getNumInput();
-		
+
 	}
+
 	/**
 	 * Reads all customers to the logger
 	 */
 	@Override
 	public List<Order> readAll() {
-		List<Order> order = orderService.readAll();
-		for(Order order: order) {
+		List<Order> orders = orderService.readAll();
+		for (Order order : orders) {
 			LOGGER.info(order.toString());
 		}
-		return order;
+		return orders;
 	}
 
 	/**
@@ -46,12 +46,12 @@ public class OrderController implements CrudController<Order>{
 	@Override
 	public Order create() {
 		LOGGER.info("Welcome. Please enter your Customer ID");
-		String itemName = getInput();
-		LOGGER.info("Please enter the quantity");
-		int quantity = getNumberInput();
-		LOGGER.info("Now please enter the total price");
-		double total_price = getNumInput();
-		Items items = itemsService.create(new Order(itemName, quantity, total_price));
+		Long customer_id= getNumberInput();
+		LOGGER.info("Date of Order placed: ");
+		// Date placed_date = getNumberInput();
+		LOGGER.info("Total: £");
+		double total_order = getNumInput();
+		Order order = orderService.create(new Order(customer_id, placed_date, total_order));
 		LOGGER.info("Order Created!");
 		return order;
 	}
@@ -61,13 +61,13 @@ public class OrderController implements CrudController<Order>{
 	 */
 	@Override
 	public Order update() {
-		LOGGER.info("Please enter your customer ID: ");
-		Long fkcustomer_ID = getInput();
-		LOGGER.info("Please enter the new quantity: ");
-		int quantity = getNumberInput();
-		Items items = itemsService.update(new Items(itemName, quantity));
-		LOGGER.info("Item: " + itemName +  " Updated!");
-		return items;
+		LOGGER.info("Please enter your Customer ID: ");
+		Long fkcustomer_id = getNumberInput();
+		LOGGER.info("Please enter the new total: £");
+		double total_order= getNumInput();
+		Order order = orderService.create(new Order(fkcustomer_id,total_order));
+		LOGGER.info("Order: " + order.getOrder_id() + " Updated!");
+		return order;
 	}
 
 	/**
@@ -76,14 +76,10 @@ public class OrderController implements CrudController<Order>{
 	@Override
 	public void delete() {
 		LOGGER.info("Please enter the ID of the order you would like to delete");
-		Long id = Long.valueOf(gettheInput());
+		Long id = Long.valueOf(getNumberInput());
 		orderService.delete(id);
 		LOGGER.info("Order Deleted!");
-		
+
 	}
-	
+
 }
-
-
-
-

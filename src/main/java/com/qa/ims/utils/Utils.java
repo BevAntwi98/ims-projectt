@@ -1,5 +1,7 @@
 package com.qa.ims.utils;
 
+
+import java.util.Date;
 import java.util.Scanner;
 
 public class Utils {
@@ -27,4 +29,7 @@ public class Utils {
 	public static long gettheInput() {
         return SCANNER.nextLong();
 	}
+	
+
+	
 }

@@ -1,11 +1,15 @@
 package com.qa.ims.persistence.domain;
-
+import com.qa.ims.persistence.domain.Items;
 import java.sql.Date;
 
+
+
 public class Order {
+	
+	Items item = new Items();
 		
-		private long order_id; 
-		private long fkcustomer_id;
+		private Long order_id;  
+		private Long fkcustomer_id;
 		private Date placed_date;
 		private double total_order;
 		
@@ -19,10 +23,10 @@ public class Order {
 		}
 
 
-		public Order(Long order_id, Long fkcustomer_id) {
+		public Order(Long fkcustomer_id, double total_order) {
 			super();
-			this.order_id = order_id;
 			this.fkcustomer_id = fkcustomer_id;
+			this.total_order = total_order;
 		}
 
 
@@ -66,10 +70,10 @@ public class Order {
 		}
 		
 		
-//		public String addItemToOrder() {
-//		
-//			
-//		}
+		public String addItemToOrder() {
+		return item.getItem_name();
+			
+		}
 		
 		
 		
