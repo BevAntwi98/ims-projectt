@@ -6,11 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.qa.ims.persistence.domain.Customer;
 import com.qa.ims.persistence.domain.Order;
 import com.qa.ims.utils.Utils;
 
@@ -35,9 +35,9 @@ public class OrderDaoMysql implements Dao<Order> {
 	}
 
 	Order orderFromResultSet(ResultSet resultSet) throws SQLException {
-		Long order_id = resultSet.getLong("id");
+		Long order_id = resultSet.getLong("order_id");
 		Long customer_id= resultSet.getLong("customer_id");
-		Date placed_date = resultSet.getString("placed_date");
+		Date placed_date = resultSet.getTimestamp("placed_date");
 		double total_order = resultSet.getDouble("total_order");
 		return new Order(order_id, customer_id, placed_date,total_order);
 	}

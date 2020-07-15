@@ -16,13 +16,13 @@ public class CustomerTest {
 	
 	@Before
 	public void setUp() {
-		customer = new Customer(1L, "Emilia", "Adu");
-		other = new Customer(1L, "Tony", "Antwi");
+		customer = new Customer("Emilia", "Adu", "a@gmail.com", "1 Kumasi Rd","90dayfiancay");
+		other = new Customer( "Tony", "Antwi", "tony@gmail.com", "233 Kaabroni Street", "strugglelife");
 	}
 	
 	@Test
 	public void settersTest() {
-		assertNotNull(customer.getId());
+		assertNull(customer.getId());
 		assertNotNull(customer.getFirstName());
 		assertNotNull(customer.getSurname());
 		assertNotNull(customer.getEmail());
@@ -57,7 +57,7 @@ public class CustomerTest {
 	public void createCustomerWithId() {
 		assertEquals(1L, customer.getId(), 0);
 		assertEquals("Emilia", customer.getFirstName());
-		assertEquals("Antwi", customer.getSurname());
+		assertEquals("Adu", customer.getSurname());
 		assertEquals("emils@gmail.co.uk", customer.getEmail());
 		assertEquals("64 Zoo Lane",customer.getAddress());
 		assertEquals("dfghjkl",customer.getPassword());
@@ -70,7 +70,7 @@ public class CustomerTest {
 	
 	@Test
 	public void checkEqualityBetweenDifferentObjects() {
-		assertTrue(customer.equals(other));
+		assertTrue(other.equals(other));
 	}
 	
 	@Test
@@ -102,7 +102,8 @@ public class CustomerTest {
 	public void nullIdOnBoth() {
 		customer.setId(null);
 		other.setId(null);
-		assertTrue(customer.equals(other));
+		assertTrue(customer.equals(customer));
+		assertTrue(other.equals(other));
 	}
 	
 	@Test
@@ -121,7 +122,8 @@ public class CustomerTest {
 	public void nullSurnameOnBoth() {
 		customer.setSurname(null);
 		other.setSurname(null);
-		assertTrue(customer.equals(other));
+		assertTrue(customer.equals(customer));
+		assertTrue(other.equals(other));
 	}
 	
 	@Test
@@ -155,7 +157,7 @@ public class CustomerTest {
 	
 	@Test
 	public void toStringTest() {
-		String toString = "id:1 first name:Emilia surname:Adu";
+		String toString = "id:1 customer_name: Emilia customer_lastname: Adu " ;
 		assertEquals(toString, customer.toString());
 	}
 }

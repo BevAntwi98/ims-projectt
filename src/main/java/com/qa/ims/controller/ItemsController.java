@@ -31,6 +31,9 @@ public class ItemsController implements CrudController<Items>{
 			return Utils.getNumInput();
 			
 		}
+		Long getLongInput() {
+			return Utils.gettheInput();
+		}
 		/**
 		 * Reads all customers to the logger
 		 */

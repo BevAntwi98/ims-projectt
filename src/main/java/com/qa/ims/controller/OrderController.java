@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.qa.ims.persistence.domain.Items;
 import com.qa.ims.persistence.domain.Order;
 import com.qa.ims.services.CrudServices;
 import com.qa.ims.utils.Utils;
@@ -12,6 +13,7 @@ import com.qa.ims.utils.Utils;
 public class OrderController implements CrudController<Order> {
 
 	public static final Logger LOGGER = Logger.getLogger(OrderController.class);
+	Items item = new Items();
 
 	private CrudServices<Order> orderService;
 
@@ -28,8 +30,16 @@ public class OrderController implements CrudController<Order> {
 
 	}
 
+	Date getTheDate() {
+		return getTheDate();
+	}
+
+	String getInput() {
+	return Utils.getInput();
+	}
+
 	/**
-	 * Reads all customers to the logger
+	 * Reads all orders to the logger
 	 */
 	@Override
 	public List<Order> readAll() {
@@ -41,14 +51,16 @@ public class OrderController implements CrudController<Order> {
 	}
 
 	/**
-	 * Creates a customer by taking in user input
+	 * Creates an order by taking in user input
 	 */
 	@Override
 	public Order create() {
 		LOGGER.info("Welcome. Please enter your Customer ID");
-		Long customer_id= getNumberInput();
+		Long customer_id = getNumberInput();
+		LOGGER.info("Please enter the item names(s): ");
+		String item_name = getInput();
 		LOGGER.info("Date of Order placed: ");
-		// Date placed_date = getNumberInput();
+		Date placed_date = getTheDate();
 		LOGGER.info("Total: £");
 		double total_order = getNumInput();
 		Order order = orderService.create(new Order(customer_id, placed_date, total_order));
@@ -57,21 +69,21 @@ public class OrderController implements CrudController<Order> {
 	}
 
 	/**
-	 * Updates an existing customer by taking in user input
+	 * Updates an existing order by taking in user input
 	 */
 	@Override
 	public Order update() {
 		LOGGER.info("Please enter your Customer ID: ");
 		Long fkcustomer_id = getNumberInput();
 		LOGGER.info("Please enter the new total: £");
-		double total_order= getNumInput();
-		Order order = orderService.create(new Order(fkcustomer_id,total_order));
+		double total_order = getNumInput();
+		Order order = orderService.create(new Order(fkcustomer_id, total_order));
 		LOGGER.info("Order: " + order.getOrder_id() + " Updated!");
 		return order;
 	}
 
 	/**
-	 * Deletes an existing customer by the id of the customer
+	 * Deletes an existing order by the id of the customer
 	 */
 	@Override
 	public void delete() {

@@ -14,6 +14,7 @@ import com.qa.ims.controller.Action;
 import com.qa.ims.controller.CrudController;
 import com.qa.ims.controller.CustomerController;
 import com.qa.ims.controller.ItemsController;
+import com.qa.ims.controller.OrderController;
 import com.qa.ims.persistence.dao.CustomerDaoMysql;
 import com.qa.ims.persistence.dao.ItemsDaoMysql;
 import com.qa.ims.persistence.domain.Domain;
@@ -36,15 +37,12 @@ public class Ims {
 
 		LOGGER.info("Which entity would you like to use?");
 		Domain.printDomains();
-		
-		
+
 		Domain domain = Domain.getDomain();
 		LOGGER.info("What would you like to do with " + domain.name().toLowerCase() + ":");
 
 		Action.printActions();
 		Action action = Action.getAction();
-		
-		
 
 		switch (domain) {
 		case CUSTOMER:
@@ -58,6 +56,9 @@ public class Ims {
 			doAction(itemsController, action);
 			break;
 		case ORDER:
+//			OrderController orderController = new OrderController(
+//					new OrderServices(new OrderDaoMysql(username, password)));
+//			doAction(orderController, action);
 			break;
 		case STOP:
 			break;

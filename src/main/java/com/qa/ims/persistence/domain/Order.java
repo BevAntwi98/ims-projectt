@@ -1,6 +1,5 @@
 package com.qa.ims.persistence.domain;
-import com.qa.ims.persistence.domain.Items;
-import java.sql.Date;
+import java.util.Date;
 
 
 
@@ -14,7 +13,17 @@ public class Order {
 		private double total_order;
 		
 		
-		public Order( Long customer_id, Date placed_date, double total_order) {
+		
+		public Order(Long order_id, Long fkcustomer_id, Date placed_date, double total_order) {
+			super();
+			this.order_id = order_id;
+			this.fkcustomer_id = fkcustomer_id;
+			this.placed_date = placed_date;
+			this.total_order = total_order;
+		}
+
+
+		public Order(Long customer_id, Date placed_date, double total_order) {
 			super();
 			
 			this.fkcustomer_id = customer_id;
@@ -28,7 +37,11 @@ public class Order {
 			this.fkcustomer_id = fkcustomer_id;
 			this.total_order = total_order;
 		}
-
+        
+		public Order() {
+			
+		}
+		
 
 		public Long getOrder_id() {
 			return order_id;

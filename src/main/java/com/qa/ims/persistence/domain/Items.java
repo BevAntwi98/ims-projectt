@@ -88,4 +88,11 @@ public class Items {
 		this.total_price = total_price;
 	}
 
+//	public void setQuantity(Object object) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+
+
+
 }

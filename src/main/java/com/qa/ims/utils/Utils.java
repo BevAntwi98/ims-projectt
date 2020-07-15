@@ -8,6 +8,7 @@ public class Utils {
 
 	public static final String MYSQL_URL = "35.189.70.116:3306";
 	public static final Scanner SCANNER = new Scanner(System.in);
+	public static final Date date = new Date();
 
 	private Utils() {
 
@@ -30,6 +31,9 @@ public class Utils {
         return SCANNER.nextLong();
 	}
 	
+	public  void getTheDate() {
+		System.out.println(date);
+	}
 
 	
 }
