@@ -26,7 +26,7 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Maven](https://maven.apache.org/) - Dependency Management
+[Maven](https://maven.apache.org/) - Dependency Management
 
 ### Installing
 
@@ -35,7 +35,7 @@ git clone git@github.com:BevAntwi98/ims-projectt.git
 cd ims-projectt/
 mvn package
 
-## Versioning
+### Versioning
 
 We use [SemVer](http://semver.org/) for versioning.
 
@@ -44,13 +44,12 @@ We use [SemVer](http://semver.org/) for versioning.
 
 In the directory where pom.xml is run:
 
-```
 mvn test
 ```
 This runs the tests using a suitable testing framework, these tests should not require the code to be packaged or deployed.
 
-## Authors
 
+### Authors
 * **Beverly Akwua Antwi-Agyei** - *Project Owner* - [BevAntwi98](https://github.com/BevAntwi98)
 * **Chris Perrins** - *Initial work* - [christophperrins](https://github.com/christophperrins)
 * **Nick Johnson** - *Refinements* - [nickrstewarttds](https://github.com/nickrstewarttds)
