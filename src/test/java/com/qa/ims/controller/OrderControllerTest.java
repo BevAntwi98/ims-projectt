@@ -19,7 +19,7 @@ import com.qa.ims.persistence.domain.Order;
 import com.qa.ims.services.OrderServices;
 
 @RunWith(MockitoJUnitRunner.class)
-public class OrderController {
+public class OrderControllerTest {
 	
 
 	Date date = new Date();
@@ -39,7 +39,7 @@ public class OrderController {
 	@InjectMocks // for any classes our customerController calls (in this case customerService)
 	private OrderController orderController;
 
-	public OrderController(OrderServices orderServices) {
+	public void OrderController(OrderServices orderServices) {
 		
 	}
 
@@ -51,22 +51,23 @@ public class OrderController {
 		order.add(new Order(2L, 2L, "Pencil Case", date, 12.34));
 		order.add(new Order(3L, 3L, "Lip" , date, 16.87));
 		Mockito.when(orderServices.readAll()).thenReturn(order);
-//		assertEquals(order, orderController.readAll());
+		assertEquals(order, orderController.readAll());
 	}
 
 	@Test
 	public void create() {
 
-		Long order_id = 1L;
 		Long customer_id = 1L;
 		String item_Name = "Shoes";
 		Date placed_date = date;
 		Double total_order = 200.00;
-		Mockito.doReturn(order_id, customer_id, placed_date, total_order).when(orderController);
-		Order order = new Order(order_id, customer_id, item_Name, placed_date, total_order);
+		Mockito.doReturn(customer_id).when(orderController).getNumberInput();
+		Mockito.doReturn(placed_date).when(orderController).getTheDate();
+		Mockito.doReturn(total_order).when(orderController).getNumInput();
+		Order order = new Order( customer_id, item_Name, placed_date, total_order);
 		Order savedOrder = new Order(1L, 1L, "Shoes", date, 200.00);
 		Mockito.when(orderServices.create(order)).thenReturn(savedOrder);
-//		assertEquals(savedOrder, orderController.create());
+		assertEquals(savedOrder, orderController.create());
 	}
 
 	/**
@@ -75,23 +76,27 @@ public class OrderController {
 	@Test
 	public void updateTest() {
 		Long customer_id = 1L;
-		Date placed_date = date;
+//		Date placed_date =date;
 		Double total_order = 0.00;
-		Mockito.doReturn(customer_id, placed_date, total_order).when(orderController).updateTest();;
+		Mockito.doReturn(customer_id).when(orderController).getNumberInput();
+//		Mockito.doReturn(placed_date).when(orderController).getTheDate();
+		Mockito.doReturn(total_order).when(orderController).getNumInput();
 		Order order = new Order(1L, date, 23.88);
 		Mockito.when(orderServices.update(order)).thenReturn(order);
-//		assertEquals(order, orderController.updateTest());
+		assertEquals(order, orderController.update());
 	}
-}
+
 	/**
 	 * Delete doesn't return anything, so we can just verify that it calls the
 	 * delete method
 	 */
-//	@Test
-//	public void deleteTest() {
-//		Long id = 2L; orderController.
-////		Mockito.doReturn(id).when(orderController).orderController.delete();
-//		Mockito.verify(orderServices, Mockito.times(1)).delete(2L);
-//	}
-//
-//}
+	@Test
+	public void deleteTest() {
+		String id = "1";
+		Mockito.doReturn(id).when(orderController).getInput();
+		orderController.delete();
+		Mockito.verify(orderServices, Mockito.times(1)).delete(1L);
+	}
+
+
+}

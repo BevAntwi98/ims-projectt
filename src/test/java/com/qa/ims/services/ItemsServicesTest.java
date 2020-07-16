@@ -11,6 +11,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import com.qa.ims.persistence.dao.Dao;
 import com.qa.ims.persistence.domain.Items;
 
+@RunWith(MockitoJUnitRunner.class)
 public class ItemsServicesTest{
 
 
@@ -44,7 +45,7 @@ public void itemsServicesUpdate() {
 
 @Test
 public void itemsServicesDelete() {
-	itemsServices.delete(1L);;
+	itemsServices.delete(1L);
 	Mockito.verify(itemsDao, Mockito.times(1)).delete(1L);
 }
 

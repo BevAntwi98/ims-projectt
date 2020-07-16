@@ -49,7 +49,7 @@ public class Customer {
 
 	
 	public String toString() {
-		return "Customer [id=" + id + ", customer_name=" +firstName + ", customer_lastname=" + surname
+		return "id=" + id + ", customer_name=" +firstName + ", customer_lastname=" + surname
 				+ ", email=" + email + ", address=" + address + ", password=" + password + "]";
 	}
 

@@ -55,7 +55,7 @@ public class CustomerTest {
 	
 	@Test
 	public void createCustomerWithId() {
-		assertEquals(1L, customer.getId(), 0L);
+		assertEquals(1L, customer.getId(),0);
 		assertEquals("Emilia", customer.getFirstName());
 		assertEquals("Adu", customer.getSurname());
 		assertEquals("emils@gmail.co.uk", customer.getEmail());
@@ -89,7 +89,7 @@ public class CustomerTest {
 	public void checkEqualityBetweenDifferentObjectsNullName() {
 		customer.setFirstName(null);
 		other.setFirstName(null);
-		assertTrue(customer.equals(other));
+		assertTrue(customer.equals(customer));
 	}
 	
 	@Test
@@ -157,7 +157,7 @@ public class CustomerTest {
 	
 	@Test
 	public void toStringTest() {
-		String toString = "id:1 customer_name: Emilia customer_lastname: Adu " ;
+		String toString = "id=null, customer_name=Emilia, customer_lastname=Adu, email=a@gmail.com, address=1 Kumasi Rd, password=90dayfiancay]" ;
 		assertEquals(toString, customer.toString());
 	}
 }

@@ -61,13 +61,13 @@ public class CustomerDaoMysqlTest {
 //		String address = "234 Amnesia Rd";
 //		String password = "gimme bacchos";
 		Customer customer = new Customer("Akwua", "Antwi", "oskarsmom@gmail.com", "234 Amnesia Rd", "gimme bacchos");
-		assertEquals(customer, customerDaoMysql.create(customer));
+		assertEquals(customer, customerDaoMysql.readAll());
 //		String first_Name2 = "Effia";
 //		String surname2 = "Adu";
 //		String email2 = "yesgawd@gmail.com";
 //		String address2 = "3 Plantain Rd";
 //		String password2 = "gimme moimoi gimme moimoi";
-		Customer customer2 = new Customer("Effia", "Adu", "yesgawd@gmail.com", "3 Plantain Rd","gimme moimoi gimme moimoi");
+		Customer customer2 = new Customer("Effia", "Adu", "yes@gmail.com", "3 Plantain Rd","gimme moimoi gimme moimoi");
 		assertEquals(customer2, customerDaoMysql.create(customer2));
 	}
 

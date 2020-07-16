@@ -80,10 +80,10 @@ public class ItemsControllerTest {
 	 */
 	@Test
 	public void deleteTest() {
-		Long id = 1L;
-		Mockito.doReturn(id).when(itemsController).getLongInput();
+		String id = "1";
+		Mockito.doReturn(id).when(itemsController).getInput();
 		itemsController.delete();
-		Mockito.verify(itemsServices, Mockito.times(1)).delete(id);
+		Mockito.verify(itemsServices, Mockito.times(1)).delete(1L);
 	}
 
 }
