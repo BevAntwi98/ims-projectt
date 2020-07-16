@@ -36,11 +36,11 @@ public class OrderDaoMysql implements Dao<Order> {
 
 	Order orderFromResultSet(ResultSet resultSet) throws SQLException {
 		Long order_id = resultSet.getLong("order_id");
-		Long customer_id= resultSet.getLong("customer_id");
+		Long fkcustomer_id= resultSet.getLong("fkcustomer_id");
 		String item_Name = resultSet.getString("item_Name");
 		Date placed_date = resultSet.getTimestamp("placed_date");
 		double total_order = resultSet.getDouble("total_order");
-		return new Order(order_id, customer_id, item_Name , placed_date, total_order);
+		return new Order(order_id, fkcustomer_id, item_Name , placed_date, total_order);
 	}
 
 	/**
@@ -87,7 +87,7 @@ public class OrderDaoMysql implements Dao<Order> {
 	public Order create(Order order) {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();) {
-			statement.executeUpdate("insert into Orders(order_id, customer_id, item_name,placed_date , total_order) values('" + order.getOrder_id()
+			statement.executeUpdate("insert into Orders(order_id, fkcustomer_id, item_name,placed_date , total_order) values('" + order.getOrder_id()
 					+ "','" + order.getCustomer_id() +"','" + order.getItem_name()+"','"+ order.getPlaced_date() + "','"  + order.getTotal_order() + "')");
 			return readLatest();
 		} catch (Exception e) {
@@ -110,18 +110,12 @@ public class OrderDaoMysql implements Dao<Order> {
 		return null;
 	}
 
-	/**
-	 * Updates a customer in the database
-	 *
-	 * @param customer - takes in a customer object, the id field will be used to
-	 *                 update that customer in the database
-	 * @return
-	 */
+	
 	@Override
 	public Order update(Order order) {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();) {
-			statement.executeUpdate("update Orders set total_order ='" + order.getTotal_order() + "' where customer_id =" + order.getCustomer_id());
+			statement.executeUpdate("update Orders set total_order ='" + order.getTotal_order() + "' where fkcustomer_id =" + order.getCustomer_id());
 			return readOrder(order.getCustomer_id());
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
@@ -130,11 +124,6 @@ public class OrderDaoMysql implements Dao<Order> {
 		return null;
 	}
 
-	/**
-	 * Deletes a customer in the database
-	 *
-	 * @param id - id of the customer
-	 */
 	@Override
 	public void delete(long id) {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);

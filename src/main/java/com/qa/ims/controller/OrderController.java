@@ -30,12 +30,15 @@ public class OrderController implements CrudController<Order> {
 
 	}
 
-	Date getTheDate() {
-		return getTheDate();
+	int getintNum() {
+		return Utils.getNumberInput();
 	}
 
 	String getInput() {
-	return Utils.getInput();
+		return Utils.getInput();
+	}
+	Date getTheDate() {
+		return getTheDate();
 	}
 
 	/**
@@ -56,14 +59,14 @@ public class OrderController implements CrudController<Order> {
 	@Override
 	public Order create() {
 		LOGGER.info("Welcome. Please enter your Customer ID");
-		Long customer_id = getNumberInput();
+		Long fkcustomer_id = getNumberInput();
 		LOGGER.info("Please enter the item names(s): ");
 		String item_name = getInput();
 		LOGGER.info("Date of Order placed: ");
 		Date placed_date = getTheDate();
 		LOGGER.info("Total: £");
 		double total_order = getNumInput();
-		Order order = orderService.create(new Order(customer_id, placed_date, total_order));
+		Order order = orderService.create(new Order(fkcustomer_id, item_name, placed_date, total_order));
 		LOGGER.info("Order Created!");
 		return order;
 	}

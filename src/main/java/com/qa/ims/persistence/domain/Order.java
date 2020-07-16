@@ -20,6 +20,14 @@ public class Order {
 			this.placed_date = placed_date;
 			this.total_order = total_order;
 		}
+	public Order(Long fkcustomer_id,String item_Name, Date placed_date, double total_order) {
+		super();
+	
+		this.fkcustomer_id = fkcustomer_id;
+		this.item_Name= item_Name;
+		this.placed_date = placed_date;
+		this.total_order = total_order;
+	}
 
 	public Order(Long customer_id, Date placed_date, double total_order) {
 		super();
@@ -39,6 +47,10 @@ public class Order {
 
 	}
 
+	public String toString() {
+		return "Orders [order_id=" + order_id + ", fkcustomer_id=" +fkcustomer_id + ", item_Name=" + item_Name
+				+ ", placed_date=" + placed_date + ", total_order=" + total_order + "]";
+	}
 	public Long getOrder_id() {
 		return order_id;
 	}
@@ -51,8 +63,8 @@ public class Order {
 		return fkcustomer_id;
 	}
 
-	public void setCustomer_id(Long customer_id) {
-		this.fkcustomer_id = customer_id;
+	public void setCustomer_id(Long fkcustomer_id) {
+		this.fkcustomer_id = fkcustomer_id;
 	}
 
 	public Date getPlaced_date() {

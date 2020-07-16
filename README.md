@@ -1,7 +1,22 @@
-Coverage: 34%
-# Project Title
+# INVENTORY MANAGEMENT SYSTEM (IMS)
 
-One Paragraph of project description goes here
+An application that an end user can interact with via a CLI (Command Line Interface). The application needs to be an inventory management system that needs to be able to: 
+
+* Add a customer to the system
+* View all customers in the system
+* Update a customer in the system
+* Delete a customer in the system
+* Add an item to the system
+* View all items in the system
+* Update an item in the system
+* Delete an item in the system
+* Create an order in the system
+* View all orders in the system
+* Delete an order in the system
+* Add an item to an order
+* Calculate a cost for an order
+* Delete an item in an order 
+
 
 ## Getting Started
 
@@ -13,13 +28,30 @@ Add additional notes about how to deploy this on a live system
 
 * [Maven](https://maven.apache.org/) - Dependency Management
 
+### Installing
+
+```
+git clone git@github.com:BevAntwi98/ims-projectt.git
+cd ims-projectt/
+mvn package
+
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning.
 
+
+### To run tests 
+
+In the directory where pom.xml is run:
+
+```
+mvn test
+```
+This runs the tests using a suitable testing framework, these tests should not require the code to be packaged or deployed.
+
 ## Authors
 
-* **Beverly Akwua Antwi-Agyei* - *Project Owner* - [BevAntwi98](https://github.com/BevAntwi98)
+* **Beverly Akwua Antwi-Agyei** - *Project Owner* - [BevAntwi98](https://github.com/BevAntwi98)
 * **Chris Perrins** - *Initial work* - [christophperrins](https://github.com/christophperrins)
 * **Nick Johnson** - *Refinements* - [nickrstewarttds](https://github.com/nickrstewarttds)
 
@@ -31,7 +63,6 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat-tip to anyone whose code was used
-* Shout-out to anyone who helped you out
-* Inspiration
-* etc.
+* Many Many thanks to our QA trainers Vinesh Ghela, Alan Davis and Nick Johnson
+* 
+

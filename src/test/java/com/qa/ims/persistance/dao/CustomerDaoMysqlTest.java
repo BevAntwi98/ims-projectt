@@ -91,9 +91,9 @@ public class CustomerDaoMysqlTest {
     @Test
     public void UpdateCustomerTest() {
         CustomerDaoMysql customerDaoMysql = new CustomerDaoMysql("jdbc:mysql:35.189.70.116/ims_test?serverTimezone=UTC","root", "root");
-//        Long id = 1L;
-//        String first_Name = "Akwua";
-//        String password = "qwerty";
+        Long id = 1L;
+        String first_Name = "Akwua";
+        String password = "qwerty";
         Customer customers = new Customer( "Akwua",null,null,null,"querty");
         assertEquals(customers, customerDaoMysql.update(customers));
     }
