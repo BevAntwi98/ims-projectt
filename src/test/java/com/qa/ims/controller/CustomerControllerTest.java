@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -13,6 +14,7 @@ import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import com.qa.ims.Ims;
 import com.qa.ims.persistence.domain.Customer;
 import com.qa.ims.services.CustomerServices;
 
@@ -33,6 +35,14 @@ public class CustomerControllerTest {
 	@Spy // for the methods in customerController
 	@InjectMocks // for any classes our customerController calls (in this case customerService)
 	private CustomerController customerController;
+	
+	@BeforeClass
+	public static void Init() {
+		Ims ims = new Ims();
+		ims.init("jdbc:mysql:35.189.70.116:3306/ims_test?serverTimezone=UTC", "root", "root", null);
+		
+
+	}
 
 	@Test
 	public void readAllTest() {

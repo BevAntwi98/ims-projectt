@@ -29,8 +29,8 @@ public class OrderServices implements CrudServices<Order> {
 	public void delete(Long id) {
 		orderDao.delete(id);
 	}
-  
 	
+  
 
 }
 

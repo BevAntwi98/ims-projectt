@@ -18,8 +18,8 @@ public class OrderTest {
 
 	@Before
 	public void setUp() {
-		order = new Order(1L, 1L, date, 150.99);
-		other = new Order(2L, 2L, date, 21.54);
+		order = new Order(1L, 1L, "Off White Sweatshirt", date, 150.99);
+		other = new Order(2L, 2L, "Summer Dress", date, 21.54);
 	}
 
 	@Test
@@ -34,11 +34,13 @@ public class OrderTest {
 		assertNull(order.getOrder_id());
 		order.setCustomer_id(null);
 		assertNull(order.getCustomer_id());
+		order.setItem_name(null);
+		assertNull(order.getItem_name());
 		order.setPlaced_date(null);
 		assertNull(order.getPlaced_date());
-		order.setTotal_order(null);
+		order.setTotal_order(0);
 		assertNull(order.getTotal_order());
-		assertNull(order.addItemToOrder());
+		
 
 	}
 
@@ -54,10 +56,11 @@ public class OrderTest {
 
 	@Test
 	public void createOrderWithId() {
-		assertEquals(1L, order.getOrder_id(), 0);
+		assertEquals(2L, order.getOrder_id(), 0);
 		assertEquals(1L, order.getCustomer_id(), 1);
 		assertEquals(date, order.getPlaced_date());
-		assertEquals(150.99, order.getTotal_order());
+		assertEquals("Summer Dress", order.getItem_name());
+		assertEquals(21.54, order.getTotal_order(),0.1);
 	}
 
 	@Test
@@ -173,19 +176,21 @@ public class OrderTest {
 //	}
 	@Test
 	public void constructorWithoutOrderId() {
-		Order order = new Order(null,1L,date,150.99);
+		Order order = new Order(null,1L,"Off White Sweatshirt", date,150.99);
 		assertNull(order.getOrder_id());
 		assertNotNull(order.getCustomer_id());
 		assertNotNull(order.getPlaced_date());
+		assertNotNull(order.getItem_name());
 		assertNotNull(order.getTotal_order());
 	}
 	
     
 	@Test
 	public void constructorWithoutCustomerId() {
-		Order order = new Order(1L,null,date,150.99);
+		Order order = new Order(1L,null,"Off White Sweatshirt", date,150.99);
 		assertNotNull(order.getOrder_id());
 		assertNull(order.getCustomer_id());
+		assertNotNull(order.getItem_name());
 		assertNotNull(order.getPlaced_date());
 		assertNotNull(order.getTotal_order());
 	}
@@ -197,14 +202,14 @@ public class OrderTest {
 
 	@Test
 	public void hashCodeTestWithNull() {
-		Order order = new Order(null, null, null, 0);
-		Order other = new Order(null, null, null, 0);
+		Order order = new Order(null, null, null, null, 0);
+		Order other = new Order(null, null, null, null, 0);
 		assertEquals(order.hashCode(), other.hashCode());
 	}
 
 	@Test
 	public void toStringTest() {
-		String toString = "order_id:1L customer_id:1L date: date total_order:150.99 ";
+		String toString = "order_id:1L customer_id:1L date: date total_order:150.99";
 		assertEquals(toString, order.toString());
 	}
 }

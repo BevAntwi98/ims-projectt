@@ -37,9 +37,10 @@ public class OrderDaoMysql implements Dao<Order> {
 	Order orderFromResultSet(ResultSet resultSet) throws SQLException {
 		Long order_id = resultSet.getLong("order_id");
 		Long customer_id= resultSet.getLong("customer_id");
+		String item_Name = resultSet.getString("item_Name");
 		Date placed_date = resultSet.getTimestamp("placed_date");
 		double total_order = resultSet.getDouble("total_order");
-		return new Order(order_id, customer_id, placed_date,total_order);
+		return new Order(order_id, customer_id, item_Name , placed_date, total_order);
 	}
 
 	/**
@@ -51,7 +52,7 @@ public class OrderDaoMysql implements Dao<Order> {
 	public List<Order> readAll() {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("select * from Order");) {
+				ResultSet resultSet = statement.executeQuery("select * from Orders");) {
 			ArrayList<Order> orders = new ArrayList<>();
 			while (resultSet.next()) {
 				orders.add(orderFromResultSet(resultSet));
@@ -67,7 +68,7 @@ public class OrderDaoMysql implements Dao<Order> {
 	public Order readLatest() {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM Order ORDER BY id DESC LIMIT 1");) {
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM Orders ORDER BY id DESC LIMIT 1");) {
 			resultSet.next();
 			return orderFromResultSet(resultSet);
 		} catch (Exception e) {
@@ -86,8 +87,8 @@ public class OrderDaoMysql implements Dao<Order> {
 	public Order create(Order order) {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();) {
-			statement.executeUpdate("insert into Order(order_id, customer_id, placed_date , total_order) values('" + order.getOrder_id()
-					+ "','" + order.getCustomer_id() +"','" + order.getPlaced_date() + "','"  + order.getTotal_order() + "')");
+			statement.executeUpdate("insert into Orders(order_id, customer_id, item_name,placed_date , total_order) values('" + order.getOrder_id()
+					+ "','" + order.getCustomer_id() +"','" + order.getItem_name()+"','"+ order.getPlaced_date() + "','"  + order.getTotal_order() + "')");
 			return readLatest();
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
@@ -99,7 +100,7 @@ public class OrderDaoMysql implements Dao<Order> {
 	public Order readOrder(Long id) {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT FROM Order where id = " + id);) {
+				ResultSet resultSet = statement.executeQuery("SELECT FROM Orders where order_id = " + id);) {
 			resultSet.next();
 			return orderFromResultSet(resultSet);
 		} catch (Exception e) {
@@ -120,7 +121,7 @@ public class OrderDaoMysql implements Dao<Order> {
 	public Order update(Order order) {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();) {
-			statement.executeUpdate("update Order set total_order ='" + order.getTotal_order() + "' where customer_id =" + order.getCustomer_id());
+			statement.executeUpdate("update Orders set total_order ='" + order.getTotal_order() + "' where customer_id =" + order.getCustomer_id());
 			return readOrder(order.getCustomer_id());
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
@@ -138,7 +139,7 @@ public class OrderDaoMysql implements Dao<Order> {
 	public void delete(long id) {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();) {
-			statement.executeUpdate("delete from Order where id = " + id);
+			statement.executeUpdate("delete from Orders where customer_id = " + id);
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
 			LOGGER.error(e.getMessage());

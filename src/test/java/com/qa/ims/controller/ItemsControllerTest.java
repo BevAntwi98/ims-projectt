@@ -83,7 +83,7 @@ public class ItemsControllerTest {
 		Long id = 1L;
 		Mockito.doReturn(id).when(itemsController).getLongInput();
 		itemsController.delete();
-		Mockito.verify(itemsServices, Mockito.times(1)).delete(1L);
+		Mockito.verify(itemsServices, Mockito.times(1)).delete(id);
 	}
 
 }

@@ -55,7 +55,7 @@ public class CustomerTest {
 	
 	@Test
 	public void createCustomerWithId() {
-		assertEquals(1L, customer.getId(), 0);
+		assertEquals(1L, customer.getId(), 0L);
 		assertEquals("Emilia", customer.getFirstName());
 		assertEquals("Adu", customer.getSurname());
 		assertEquals("emils@gmail.co.uk", customer.getEmail());
