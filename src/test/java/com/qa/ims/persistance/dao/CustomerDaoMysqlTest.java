@@ -76,7 +76,7 @@ public class CustomerDaoMysqlTest {
 		CustomerDaoMysql customerDaoMysql = new CustomerDaoMysql("jdbc:mysql:35.189.70.116/ims_test?serverTimezone=UTC",
 				"root", "root");
 		List<Customer> customers = new ArrayList<>();
-		customers.add(new Customer("Akwua", "Antwi", "oskarsmom@gmail.com", "234 Amnesia Rd", "gimme bacchos"));
+		customers.add(new Customer("Akwua", "Antwi", "oskarsmom@gmail.com", "234 Rd Rd", "gimme bacchos"));
 		customers.add(new Customer("Effia", "Adu", "yesgawd@gmail.com", "3 Plantain Rd", "gimme moimoi gimme moimoi"));
 		assertEquals(customers, customerDaoMysql.readAll());
 	}
@@ -91,10 +91,10 @@ public class CustomerDaoMysqlTest {
     @Test
     public void UpdateCustomerTest() {
         CustomerDaoMysql customerDaoMysql = new CustomerDaoMysql("jdbc:mysql:35.189.70.116/ims_test?serverTimezone=UTC","root", "root");
-        Long id = 1L;
+        String id = "1";
         String first_Name = "Akwua";
         String password = "qwerty";
-        Customer customers = new Customer( "Akwua",null,null,null,"querty");
+        Customer customers = new Customer("Akwua", null ,null , null,"qwerty");
         assertEquals(customers, customerDaoMysql.update(customers));
     }
 //    @Test

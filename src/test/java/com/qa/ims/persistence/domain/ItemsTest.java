@@ -33,10 +33,10 @@ public class ItemsTest {
 	
 	@Test
 	public void settersTest() {
-//		assertNotNull(item.getId());
-//		assertNotNull(item.getItem_name());
-//		assertNotNull(item.getQuantity());
-//		assertNotNull(item.getTotal_price());
+		assertNotNull(item.getId());
+		assertNotNull(item.getItem_name());
+		assertNotNull(item.getQuantity());
+		assertNotNull(item.getTotal_price());
 		
 		
 		
@@ -46,7 +46,7 @@ public class ItemsTest {
 		assertNull(item.getItem_name());
 		item.setQuantity(0);
 		assertNull(item.getQuantity());
-		item.setTotal_price(0.0);
+		item.setTotal_price(0.1);
 		assertNull(item.getTotal_price());
 	
 	}
@@ -88,71 +88,71 @@ public class ItemsTest {
 	
 	@Test
 	public void itemNameNotEqual() {
-		other.setItem_name("rhys");
-		assertFalse(item.equals(other));
-	}
-	
-	@Test
-	public void checkEqualityBetweenDifferentObjectsNullName() {
-		item.setItem_name(null);
-		other.setItem_name(null);
-		assertTrue(item.equals(other));
-	}
-	
-	@Test
-	public void nullId() {
-		item.setId(null);
-		assertFalse(item.equals(other));
-	}
-	
-	@Test
-	public void nullIdOnBoth() {
-		item.setId(null);
-		other.setId(null);
-		assertTrue(item.equals(item));
-		assertTrue(other.equals(other));
-	}
-	
-	@Test
-	public void otherIdDifferent() {
-		other.setId(2L);
-		assertFalse(item.equals(other));
-	}
-	
-	@Test
-	public void nullItem_name() {
-		item.setItem_name(null);
-		assertFalse(item.equals(other));
-	}
-	
-	@Test
-	public void nullItem_nameOnBoth() {
-		item.setItem_name(null);
-		other.setItem_name(null);
-		assertTrue(item.equals(item));
-		assertTrue(other.equals(other));
-	}
-	
-	@Test
-	public void otherItem_nameDifferent() {
-		other.setItem_name("Sweets");
+		other.setItem_name("eeee");
 		assertFalse(item.equals(other));
 	}}
+//	
 //	@Test
-//	public void nullQuantity(int quantity) {
+//	public void checkEqualityBetweenDifferentObjectsNullName() {
+//		item.setItem_name(null);
+//		other.setItem_name(null);
+//		assertTrue(item.equals(other));
+//	}
+//	
+//	@Test
+//	public void nullId() {
+//		item.setId(null);
+//		assertFalse(item.equals(other));
+//	}
+//	
+//	@Test
+//	public void nullIdOnBoth() {
+//		item.setId(null);
+//		other.setId(null);
+//		assertTrue(item.equals(item));
+//		assertTrue(other.equals(other));
+//	}
+//	
+//	@Test
+//	public void otherIdDifferent() {
+//		other.setId(2L);
+//		assertFalse(item.equals(other));
+//	}
+//	
+//	@Test
+//	public void nullItem_name() {
+//		item.setItem_name(null);
+//		assertFalse(item.equals(other));
+//	}
+//	
+//	@Test
+//	public void nullItem_nameOnBoth() {
+//		item.setItem_name(null);
+//		other.setItem_name(null);
+//		assertTrue(item.equals(item));
+//		assertTrue(other.equals(other));
+//	}
+//	
+//	@Test
+//	public void otherItem_nameDifferent() {
+//		other.setItem_name("Sweets");
+//		assertFalse(item.equals(other));
+//	}
+//	@Test
+//	public void nullQuantity() {
 //		item.setQuantity(0);
 //		assertFalse(item.equals(other));
 //	}
 //	
-//	@SuppressWarnings("null")
+//
 //	@Test
 //	public void nullQuantityOnBoth() {
-//		item.setQuantity((Integer) null);;
-//		other.setQuantity((Integer) null);
-//		assertTrue(item.equals(item));
-//		assertTrue(other.equals(other));
+//		item.setQuantity(0);
+//		other.setQuantity(0);
+//		assertTrue(item.equals(other));
+//
 //	}
-	
+//	
 //	@Test
 //	public void otherQuantityDifferent() {
 //		other.setQuantity(23);
@@ -160,25 +160,24 @@ public class ItemsTest {
 //	}
 //	
 //	public void nullTotal_order() {
-//		item.setTotal_price( 0);
+//		item.setTotal_price(0);
 //		assertFalse(item.equals(other));
-//	}
-	
-//	@Test
-//	public void nullTotal_orderOnBoth() {
-//		item.setTotal_order(0);
-//		other.setTotal_order(0);
-//		assertTrue(item.equals(item));
-//		assertTrue(other.equals(other));
 //	}
 //	
-//	@Test
-//	public void otherTotal_orderDifferent() {
-//		other.setTotal_order(16.78);
-//		assertFalse(item.equals(other));
-//	}
-
-	
+////	@Test
+////	public void nullTotal_orderOnBoth() {
+////		item.setTotal_order(0);
+////		other.setTotal_order(0);
+////		assertTrue(item.equals(other));
+////	}
+////	
+////	@Test
+////	public void otherTotal_orderDifferent() {
+////		other.setTotal_order(16.78);
+////		assertFalse(item.equals(other));
+////	}
+//
+//	
 //	@Test
 //	public void constructorWithoutId() {
 //		Items items = new Items("Kente Bonnet",1, 24.55 );
@@ -188,27 +187,26 @@ public class ItemsTest {
 //		assertNotNull(items.getTotal_price());
 //		
 //	}
-//	}
-	
-	
+//	
+//	
 //	
 //	@Test
 //	public void hashCodeTest() {
-//		assertEquals(customer.hashCode(), other.hashCode());
+//		assertEquals(item.hashCode(), other.hashCode());
 //	}
 //	@Test
 //	public void hashCodeTestWithNull() {
-//		Customer customer = new Customer(null, null, null,null,null);
-//		Customer other = new Customer(null, null, null, null, null);
-//		assertEquals(customer.hashCode(), other.hashCode());
+//		Items items = new Items();
+//		Items other = new Items();
+//		assertEquals(items.hashCode(), other.hashCode());
 //	}
 //	
-//	@Test
-//	public void toStringTest() {
-//		String toString = "id:1 customer_name: Emilia customer_lastname: Adu";
-//		assertEquals(toString, customer.toString());
-//	}
+////	@Test
+////	public void toStringTest() {
+////		String toString = "id:1 customer_name: Emilia customer_lastname: Adu";
+////		assertEquals(toString, item.toString());
+////	}
 //}
-
-
-
+//
+//
+//
