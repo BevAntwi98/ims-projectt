@@ -21,9 +21,9 @@ An application that an end user can interact with via a CLI (Command Line Interf
 
 ## Prerequisites
 
-*Java 1.8
-*Maven 2.4
-*MySQL 1.2.17
+* Java 1.8
+* Maven 2.4
+* MySQL 1.2.17
 
 ## Built With
 
@@ -31,9 +31,9 @@ An application that an end user can interact with via a CLI (Command Line Interf
 
 ## Installing
 
-git clone git@github.com:BevAntwi98/ims-projectt.git
-cd ims-projectt/
-mvn package
+* git clone git@github.com:BevAntwi98/ims-projectt.git
+* cd ims-projectt/
+* mvn package
 
 
 ## To run tests 
