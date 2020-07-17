@@ -83,14 +83,14 @@ public class CustomerDaoMysqlTest {
         CustomerDaoMysql customerDaoMysql = new CustomerDaoMysql("jdbc:mysql:35.189.70.116/ims_test?serverTimezone=UTC","root", "root");
         Customer customers = new Customer("Akwua", null ,null , null,"qwerty");
         assertEquals(customers, customerDaoMysql.update(customers));
-    }
-    @Test
-    @Ignore //junit breaks code
-    public void DeleteCustomerTest() {
-        CustomerDaoMysql customerDaoMysql = new CustomerDaoMysql("jdbc:mysql:35.189.70.116/ims_test?serverTimezone=UTC", "root", "root");
-        Customer customer = new Customer(1L, null, null);
-        assertEquals(customer, customerDaoMysql.delete(1L));
-    }
+   }
+//    @Test
+//    @Ignore //junit breaks code
+//    public void DeleteCustomerTest() {
+//        CustomerDaoMysql customerDaoMysql = new CustomerDaoMysql("jdbc:mysql:35.189.70.116/ims_test?serverTimezone=UTC", "root", "root");
+//        Customer customer = new Customer(1L, null, null);
+//        assertEquals(customer, customerDaoMysql.delete(1L));
+//    }
 
 
 }

@@ -85,12 +85,12 @@ public class OrderDaoMysqlTest {
 	    	Order order = new Order();
 	        assertEquals(order, orderDao.update(order));
 	    }
-	    @Test
-	    @Ignore //junit breaks code
-	    public void DeleteOrderTest() {
-	        OrderDaoMysql orderDao = new OrderDaoMysql("jdbc:mysql:35.189.70.116/ims_test?serverTimezone=UTC", "root", "root");
-	       Order order = new Order();
-	        assertEquals(order, orderDao.delete(1L));
-	    }
+//	    @Test
+//	    @Ignore //junit breaks code
+//	    public void DeleteOrderTest() {
+//	        OrderDaoMysql orderDao = new OrderDaoMysql("jdbc:mysql:35.189.70.116/ims_test?serverTimezone=UTC", "root", "root");
+//	       Order order = new Order();
+//	        assertEquals(order, orderDao.delete(1L));
+//	    }
 
 }

@@ -53,16 +53,16 @@ public class CustomerTest {
 		assertFalse(customer.equals(new Object()));
 	}
 	
-	@Test
-	public void createCustomerWithId() {
-		assertEquals(1L, customer.getId(),0);
-		assertEquals("Emilia", customer.getFirstName());
-		assertEquals("Adu", customer.getSurname());
-		assertEquals("emils@gmail.co.uk", customer.getEmail());
-		assertEquals("64 Zoo Lane",customer.getAddress());
-		assertEquals("dfghjkl",customer.getPassword());
-	}
-	
+//	@Test
+////	public void createCustomerWithId() {
+////		assertEquals(1L, customer.getId(),0);
+////		assertEquals("Emilia", customer.getFirstName());
+////		assertEquals("Adu", customer.getSurname());
+////		assertEquals("emils@gmail.co.uk", customer.getEmail());
+////		assertEquals("64 Zoo Lane",customer.getAddress());
+////		assertEquals("dfghjkl",customer.getPassword());
+////	}
+//	
 	@Test
 	public void checkEquality() {
 		assertTrue(customer.equals(customer));
