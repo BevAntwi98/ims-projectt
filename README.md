@@ -31,14 +31,9 @@ MySQL 1.2.17
 
 ## Installing
 
-git clone git@github.com:BevAntwi98/ims-projectt.git
-cd ims-projectt/
-mvn package
-
-
-## Versioning
-
-We use SemVer(http://semver.org/) for versioning.
+*git clone git@github.com:BevAntwi98/ims-projectt.git
+*cd ims-projectt/
+*mvn package
 
 
 ##To run tests 
