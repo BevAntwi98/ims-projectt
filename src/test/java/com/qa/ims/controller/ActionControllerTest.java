@@ -1,6 +1,7 @@
 package com.qa.ims.controller;
 
 import org.apache.log4j.Logger;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -11,8 +12,7 @@ import com.qa.ims.persistance.dao.CustomerDaoMysqlTest;
 
 public class ActionControllerTest {
 	
-	 final Logger LOGGER = Logger.getLogger(CustomerDaoMysqlTest.class);
-	
+	 final Logger LOGGER = Logger.getLogger(Action.class);
 	 
 	 @Spy // 
 		@InjectMocks 
@@ -23,15 +23,14 @@ public class ActionControllerTest {
 			Ims ims = new Ims();
 			ims.init("jdbc:mysql:35.189.70.116:3306/ims_test?serverTimezone=UTC", "root", "root", null);
 		}
-//	 
-//	 @Test
-//	 public void EnumAction() {
-//		 CREATE,READ,UPDATE,DELETE;
-//	 }
+	
+		@Before
+		public void setUp() {
+			Action action;
+		}
 	 
 	 @Test
 	 public void StringActionTest() {
-		
 	 }
 	 
 	 public void printActionsTest() {

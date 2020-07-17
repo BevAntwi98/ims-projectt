@@ -35,8 +35,8 @@ public class OrderControllerTest {
 	 * InjectMocks uses dependency injection to insert the mock into the customer
 	 * controller
 	 */
-	@Spy // for the methods in customerController
-	@InjectMocks // for any classes our customerController calls (in this case customerService)
+	@Spy 
+	@InjectMocks 
 	private OrderController orderController;
 
 	public void OrderController(OrderServices orderServices) {
@@ -76,12 +76,12 @@ public class OrderControllerTest {
 	@Test
 	public void updateTest() {
 		Long customer_id = 1L;
-//		Date placed_date =date;
+//		Date placed_date = date;
 		Double total_order = 0.00;
 		Mockito.doReturn(customer_id).when(orderController).getNumberInput();
 //		Mockito.doReturn(placed_date).when(orderController).getTheDate();
 		Mockito.doReturn(total_order).when(orderController).getNumInput();
-		Order order = new Order(1L, date, 23.88);
+		Order order = new Order(1L, 23.88);
 		Mockito.when(orderServices.update(order)).thenReturn(order);
 		assertEquals(order, orderController.update());
 	}

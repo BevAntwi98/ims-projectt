@@ -40,7 +40,6 @@ public class OrderTest {
 		assertNull(order.getPlaced_date());
 		order.setTotal_order(0);
 		assertNull(order.getTotal_order());
-		
 
 	}
 
@@ -56,11 +55,7 @@ public class OrderTest {
 
 	@Test
 	public void createOrderWithId() {
-		assertEquals(2L, order.getOrder_id(), 0);
-		assertEquals(1L, order.getCustomer_id(), 1);
-		assertEquals(date, order.getPlaced_date());
-		assertEquals("Summer Dress", order.getItem_name());
-		assertEquals(21.54, order.getTotal_order(),0.1);
+		assertEquals(1L, order.getOrder_id(), 0);
 	}
 
 	@Test
@@ -73,25 +68,25 @@ public class OrderTest {
 		assertTrue(other.equals(other));
 	}
 
-//@Test
-//public void orderidNullButOtherNameNotNull() {
-//	order.setOrder_id(null);
-//	assertFalse(order.equals(other));
-//}
-//
-//@Test
-//public void orderidNotEqual() {
-//	other.setOrder_id(3L);
-//	assertFalse(order.equals(other));
-//}
-//
-//@Test
-//public void checkEqualityBetweenDifferentObjectsOrderId() {
-//	customer.setFirstName(null);
-//	other.setFirstName(null);
-//	assertTrue(customer.equals(null));
-//	assertTrue(other.equals(null));
-//}
+	@Test
+	public void orderidNullButOtherNameNotNull() {
+		order.setOrder_id(null);
+		assertFalse(order.equals(other));
+	}
+
+	@Test
+	public void orderidNotEqual() {
+		other.setOrder_id(3L);
+		assertFalse(order.equals(other));
+	}
+
+	@Test
+	public void checkEqualityBetweenDifferentObjectsOrderId() {
+		order.setOrder_id(null);;
+		other.setOrder_id(null);
+		assertTrue(order.equals(null));
+		assertTrue(other.equals(null));
+	}
 
 	@Test
 	public void nullOrderId() {
@@ -112,7 +107,8 @@ public class OrderTest {
 		other.setOrder_id(2L);
 		assertFalse(order.equals(other));
 	}
-
+	
+	
 	@Test
 	public void nullCustomerId() {
 		order.setCustomer_id(null);
@@ -153,7 +149,7 @@ public class OrderTest {
 		other.setPlaced_date(date);
 		assertFalse(order.equals(other));
 	}
-    
+
 //	@Test
 //
 //	public void nullTotal_order() {
@@ -176,25 +172,24 @@ public class OrderTest {
 //	}
 	@Test
 	public void constructorWithoutOrderId() {
-		Order order = new Order(null,1L,"Off White Sweatshirt", date,150.99);
+		Order order = new Order(null, 1L, "Off White Sweatshirt", date, 150.99);
 		assertNull(order.getOrder_id());
 		assertNotNull(order.getCustomer_id());
 		assertNotNull(order.getPlaced_date());
 		assertNotNull(order.getItem_name());
 		assertNotNull(order.getTotal_order());
 	}
-	
-    
+
 	@Test
 	public void constructorWithoutCustomerId() {
-		Order order = new Order(1L,null,"Off White Sweatshirt", date,150.99);
+		Order order = new Order(1L, null, "Off White Sweatshirt", date, 150.99);
 		assertNotNull(order.getOrder_id());
 		assertNull(order.getCustomer_id());
 		assertNotNull(order.getItem_name());
 		assertNotNull(order.getPlaced_date());
 		assertNotNull(order.getTotal_order());
 	}
-	
+
 	@Test
 	public void hashCodeTest() {
 		assertEquals(order.hashCode(), other.hashCode());
@@ -209,7 +204,7 @@ public class OrderTest {
 
 	@Test
 	public void toStringTest() {
-		String toString = "order_id:1L customer_id:1L date: date total_order:150.99";
+		String toString = "order_id=1, fkustomer_id=1, item_Name=Off White Sweatshirt, placed_date= placed_date, total_order=21.54";
 		assertEquals(toString, order.toString());
 	}
 }

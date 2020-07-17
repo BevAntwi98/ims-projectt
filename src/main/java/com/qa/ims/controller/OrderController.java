@@ -21,7 +21,7 @@ public class OrderController implements CrudController<Order> {
 		this.orderService = orderService;
 	}
 
-	long getNumberInput() {
+	Long getNumberInput() {
 		return Utils.gettheInput();
 	}
 
@@ -58,10 +58,11 @@ public class OrderController implements CrudController<Order> {
 	 */
 	@Override
 	public Order create() {
-		LOGGER.info("Welcome. Please enter your Customer ID");
-		Long fkcustomer_id = getNumberInput();
+		
 		LOGGER.info("Please enter the item names(s): ");
 		String item_name = getInput();
+		LOGGER.info(" Please enter your Customer ID");
+		Long fkcustomer_id = getNumberInput();
 		LOGGER.info("Date of Order placed: ");
 		Date placed_date = getTheDate();
 		LOGGER.info("Total: £");

@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -55,23 +56,12 @@ public class CustomerDaoMysqlTest {
 	public void CreateTest() {
 		CustomerDaoMysql customerDaoMysql = new CustomerDaoMysql("jdbc:mysql:35.189.70.116/ims_test?serverTimezone=UTC",
 				"root", "root");
-//		String first_Name = "Akwua";
-//		String surname = "Antwi";
-//		String email = "oskarsmom@gmail.com";
-//		String address = "234 Amnesia Rd";
-//		String password = "gimme bacchos";
 		Customer customer = new Customer("Akwua", "Antwi", "oskarsmom@gmail.com", "234 Amnesia Rd", "gimme bacchos");
-		assertEquals(customer, customerDaoMysql.readAll());
-//		String first_Name2 = "Effia";
-//		String surname2 = "Adu";
-//		String email2 = "yesgawd@gmail.com";
-//		String address2 = "3 Plantain Rd";
-//		String password2 = "gimme moimoi gimme moimoi";
-		Customer customer2 = new Customer("Effia", "Adu", "yes@gmail.com", "3 Plantain Rd","gimme moimoi gimme moimoi");
-		assertEquals(customer2, customerDaoMysql.create(customer2));
+		assertEquals(customer, customerDaoMysql.create(customer));
 	}
 
 	@Test
+
 	public void ReadAllTest() {
 		CustomerDaoMysql customerDaoMysql = new CustomerDaoMysql("jdbc:mysql:35.189.70.116/ims_test?serverTimezone=UTC",
 				"root", "root");
@@ -91,23 +81,16 @@ public class CustomerDaoMysqlTest {
     @Test
     public void UpdateCustomerTest() {
         CustomerDaoMysql customerDaoMysql = new CustomerDaoMysql("jdbc:mysql:35.189.70.116/ims_test?serverTimezone=UTC","root", "root");
-        String id = "1";
-        String first_Name = "Akwua";
-        String password = "qwerty";
         Customer customers = new Customer("Akwua", null ,null , null,"qwerty");
         assertEquals(customers, customerDaoMysql.update(customers));
     }
-//    @Test
-//    public void DeleteCustomerTest() {
-//        CustomerDaoMysql customerDaoMysql = new CustomerDaoMysql("jdbc:mysql:35.189.70.116/ims_test?serverTimezone=UTC", "root", "root");
-//        Long id = 1L;
-//        Customer customer = new Customer(1L,null,null);
-//        assertEquals(customer, customerDaoMysql.delete(id));
-//    }
-//
-//
-//
-//
-//
+    @Test
+    @Ignore //junit breaks code
+    public void DeleteCustomerTest() {
+        CustomerDaoMysql customerDaoMysql = new CustomerDaoMysql("jdbc:mysql:35.189.70.116/ims_test?serverTimezone=UTC", "root", "root");
+        Customer customer = new Customer(1L, null, null);
+        assertEquals(customer, customerDaoMysql.delete(1L));
+    }
+
 
 }

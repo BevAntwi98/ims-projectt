@@ -48,8 +48,8 @@ public class Order {
 	}
 
 	public String toString() {
-		return "Orders [order_id=" + order_id + ", fkcustomer_id=" +fkcustomer_id + ", item_Name=" + item_Name
-				+ ", placed_date=" + placed_date + ", total_order=" + total_order + "]";
+		return "order_id=" + order_id + ", fkcustomer_id=" +fkcustomer_id + ", item_Name=" + item_Name
+				+ ", placed_date=" + placed_date + ", total_order=" + total_order;
 	}
 	public Long getOrder_id() {
 		return order_id;

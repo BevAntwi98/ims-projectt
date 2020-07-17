@@ -23,6 +23,10 @@ public class Customer {
 		this.password = password;
 	}
 
+	public Customer() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Long getId() {
 		return id;
 	}

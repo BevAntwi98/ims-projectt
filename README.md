@@ -20,9 +20,10 @@ An application that an end user can interact with via a CLI (Command Line Interf
 
 ## Getting Started
 
-## Deployment
+##Prerequisites
 
-Add additional notes about how to deploy this on a live system
+Java 1.8
+Maven 2.4
 
 ## Built With
 
@@ -30,14 +31,13 @@ Add additional notes about how to deploy this on a live system
 
 ### Installing
 
-```
 git clone git@github.com:BevAntwi98/ims-projectt.git
 cd ims-projectt/
 mvn package
 
 ### Versioning
 
-We use [SemVer](http://semver.org/) for versioning.
+We use SemVer(http://semver.org/) for versioning.
 
 
 ### To run tests 
@@ -45,7 +45,7 @@ We use [SemVer](http://semver.org/) for versioning.
 In the directory where pom.xml is run:
 
 mvn test
-```
+
 This runs the tests using a suitable testing framework, these tests should not require the code to be packaged or deployed.
 
 
@@ -62,6 +62,6 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Many Many thanks to our QA trainers Vinesh Ghela, Alan Davis and Nick Johnson
-* 
+* Many Many thanks to our QA trainers Vinesh Ghela, Alan Davis and Nick Johnson 
+*
 
