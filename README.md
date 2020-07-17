@@ -18,38 +18,39 @@ An application that an end user can interact with via a CLI (Command Line Interf
 * Delete an item in an order 
 
 
-## Getting Started
 
 ##Prerequisites
 
 Java 1.8
 Maven 2.4
+MySQL 1.2.17
 
 ## Built With
 
 [Maven](https://maven.apache.org/) - Dependency Management
 
-### Installing
+## Installing
 
 git clone git@github.com:BevAntwi98/ims-projectt.git
 cd ims-projectt/
 mvn package
 
-### Versioning
+
+## Versioning
 
 We use SemVer(http://semver.org/) for versioning.
 
 
-### To run tests 
+##To run tests 
 
 In the directory where pom.xml is run:
 
-mvn test
+*mvn test
 
 This runs the tests using a suitable testing framework, these tests should not require the code to be packaged or deployed.
 
 
-### Authors
+## Authors
 * **Beverly Akwua Antwi-Agyei** - *Project Owner* - [BevAntwi98](https://github.com/BevAntwi98)
 * **Chris Perrins** - *Initial work* - [christophperrins](https://github.com/christophperrins)
 * **Nick Johnson** - *Refinements* - [nickrstewarttds](https://github.com/nickrstewarttds)
@@ -62,6 +63,6 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Many Many thanks to our QA trainers Vinesh Ghela, Alan Davis and Nick Johnson 
-*
+* Many Many thanks to our QA trainers Vinesh Ghela, Alan Davis and Nick Johnson for all their help and patience
+
 
