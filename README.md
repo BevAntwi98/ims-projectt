@@ -19,7 +19,7 @@ An application that an end user can interact with via a CLI (Command Line Interf
 
 
 
-##Prerequisites
+## Prerequisites
 
 Java 1.8
 Maven 2.4
@@ -36,7 +36,7 @@ MySQL 1.2.17
 *mvn package
 
 
-##To run tests 
+## To run tests 
 
 In the directory where pom.xml is run:
 

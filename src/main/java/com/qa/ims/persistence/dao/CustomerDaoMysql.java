@@ -51,10 +51,10 @@ public class CustomerDaoMysql implements Dao<Customer> {
 	 */
 	@Override
 	public List<Customer> readAll() {
+		ArrayList<Customer> customers = new ArrayList<>();
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();
 				ResultSet resultSet = statement.executeQuery("select * from customers");) {
-			ArrayList<Customer> customers = new ArrayList<>();
 			while (resultSet.next()) {
 				customers.add(customerFromResultSet(resultSet));
 			}
@@ -63,7 +63,7 @@ public class CustomerDaoMysql implements Dao<Customer> {
 			LOGGER.debug(e.getStackTrace());
 			LOGGER.error(e.getMessage());
 		}
-		return new ArrayList<>();
+		return customers;
 	}
 
 	public Customer readLatest() {
