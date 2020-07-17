@@ -21,9 +21,9 @@ An application that an end user can interact with via a CLI (Command Line Interf
 
 ## Prerequisites
 
-Java 1.8
-Maven 2.4
-MySQL 1.2.17
+*Java 1.8
+*Maven 2.4
+*MySQL 1.2.17
 
 ## Built With
 
@@ -31,16 +31,16 @@ MySQL 1.2.17
 
 ## Installing
 
-*git clone git@github.com:BevAntwi98/ims-projectt.git
-*cd ims-projectt/
-*mvn package
+git clone git@github.com:BevAntwi98/ims-projectt.git
+cd ims-projectt/
+mvn package
 
 
 ## To run tests 
 
 In the directory where pom.xml is run:
 
-*mvn test
+mvn test
 
 This runs the tests using a suitable testing framework, these tests should not require the code to be packaged or deployed.
 
